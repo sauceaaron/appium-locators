@@ -51,11 +51,12 @@ public abstract class SauceTestBase
 	DesiredCapabilities AndroidEmulatorCapabilities = new DesiredCapabilities()
 	{{
 		setCapability("platformName", "Android");
-		setCapability("platformVersion", "9.0");
+		setCapability("platformVersion", "8.0");
 		setCapability("deviceName","Android GoogleAPI Emulator");
 		setCapability("deviceOrientation", "portrait");
 		setCapability("browserName", "");
 		setCapability("app", "sauce-storage:" + ANDROID_APP);
+		setCapability("appWaitActivity", "com.swaglabsmobileapp.MainActivity");
 	}};
 
 	DesiredCapabilities WindowsChromeCapabilities = new DesiredCapabilities()
@@ -103,6 +104,7 @@ public abstract class SauceTestBase
 		DesiredCapabilities capabilities = new DesiredCapabilities()
 				.merge(SauceLabsCapabilities)
 				.merge(AndroidEmulatorCapabilities);
+
 
 		capabilities.setCapability("name", getTestName());
 
